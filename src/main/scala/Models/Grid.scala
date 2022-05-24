@@ -43,9 +43,15 @@ object Grid {
         .map(set => NonEmptyList.fromList(set.toList))
         .collect {
           case Some(nonEmptyListOfCoords) => {
-            val sortedCoords = nonEmptyListOfCoords.sorted
-            val topLeftCoord = sortedCoords.head
-            val bottomRightCoord = sortedCoords.last
+            val sortedByRows = nonEmptyListOfCoords.sortBy(_.rowCoordinate.toInt)
+            val sortedByColumns = nonEmptyListOfCoords.sortBy(_.columnCoordinate.toInt)
+
+            val minRow = sortedByRows.head.rowCoordinate
+            val maxRow = sortedByRows.last.rowCoordinate
+            val minColumn = sortedByColumns.head.columnCoordinate
+            val maxColumn = sortedByColumns.last.columnCoordinate
+            val topLeftCoord = Coordinates(minRow, minColumn)
+            val bottomRightCoord = Coordinates(maxRow, maxColumn)
             Box(topLeftCoord, bottomRightCoord)
           }
         }

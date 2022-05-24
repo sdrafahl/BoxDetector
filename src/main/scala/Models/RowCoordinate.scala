@@ -19,6 +19,7 @@ object RowCoordinate {
     def isLessThanOrEqual(other: RowCoordinate): Boolean = cc <= other
     def isLessThan(other: RowCoordinate): Boolean = cc < other
     def downBy(x: Int): RowCoordinate = PosInt.from(x).map(pos => pos + cc).map(PosInt.unsafeFrom(_)).getOrElse(cc)
+    def toInt: Int = cc
   }
 
   given Show[RowCoordinate] = Show.show(coord => coord.toString)

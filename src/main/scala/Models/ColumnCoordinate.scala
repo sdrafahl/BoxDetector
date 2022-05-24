@@ -18,6 +18,7 @@ object ColumnCoordinate {
     def isLessThan(other: ColumnCoordinate): Boolean = cc < other
     def isLessThanOrEqual(other: ColumnCoordinate): Boolean = cc <= other
     def rightBy(x: Int): ColumnCoordinate = PosInt.from(x).map(pos => pos + cc).map(PosInt.unsafeFrom(_)).getOrElse(cc)
+    def toInt: Int = cc
   }
 
   given Show[ColumnCoordinate] = Show.show(coord => coord.toString)
