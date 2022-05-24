@@ -5,9 +5,8 @@ lazy val root = project
   .settings(
     name := "BoxDetector",
     version := "0.1.0-SNAPSHOT",
-
     scalaVersion := scala3Version,
-
+    assembly/assemblyJarName := "bounding-box",
     libraryDependencies += "org.scalameta" %% "munit" % "0.7.29" % Test,
     libraryDependencies += "com.monovore" %% "decline" % "2.2.0",
     libraryDependencies += "org.typelevel" %% "cats-core" % "2.7.0",
