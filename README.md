@@ -1,3 +1,18 @@
+# Box Detector
+
+## Installation
+Running assembly should generate a executable jar file called ```bounding-box```.
+
+```
+sbt assembly
+```
+
+## Running 
+
+```
+cat box2.txt | ./bounding-box
+```
+
 ## sbt project compiled with Scala 3
 
 ### Usage
